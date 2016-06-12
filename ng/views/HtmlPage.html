@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+    <title>My First Angular Todo App</title>
+	<meta charset="utf-8" />
+<script src="../../Scripts/jquery-2.2.3.js"></script>
+<script src="../../Scripts/bootstrap.js"></script>
+<script src="../../Scripts/angular.js"></script>
+    <script>
+        var myTodoApp = angular.module("myTodoApp", []);
+        var todoctrl = myTodoApp.controller("todoctrl", function ($scope) {
+            $scope.Tasks = { sel: true, taskName: "Create a sample app" };
+            $scope.Tel = "Hello ";
+        })
+
+    </script>
+</head>
+<body ng-app="myTodoApp">
+    <center><h4> ToDo List</h4></center>
+    <div ng-controller="todoctrl">
+        {{Tel}}
+        {{Tasks.taskName}}
+        <table>
+            <thead>
+                <tr><td>Completed</td><td>To do Task</td></tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="t in Tasks">
+                    <td>{{t.sel}}</td>
+                    <td>{{t.taskName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
